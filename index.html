@@ -2279,7 +2279,7 @@ function waLink(p, color, size, qty){
     + "Talla: " + (size || "por confirmar") + "\n"
     + "Cantidad: " + qty + "\n"
     + "Total: " + fmt(p.price * qty) + "\n\n"
-    + SITE_URL + "?p=" + p.id;
+    + SITE_URL + "producto/" + p.id + ".html";
   return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
 }
 
