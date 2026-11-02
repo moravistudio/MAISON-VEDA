@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAISON VEDA — Vestuario esencial</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="description" content="MAISON VEDA — vestuario esencial de taller propio, hecho en Lima.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MAISON VEDA — Vestuario esencial">
+<meta property="og:description" content="Piezas atemporales de taller propio, hechas en Lima.">
+<meta property="og:image" content="https://moravistudio.github.io/MAISON-VEDA/img/abrigo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -144,6 +151,12 @@ header.site{
   letter-spacing:0.04em;
   font-weight:500;
   white-space:nowrap;
+}
+.logo{display:flex;align-items:center;}
+.logo img{height:36px;width:auto;}
+.footer-logo{height:44px;width:auto;}
+@media (max-width:480px){
+  .logo img{height:28px;}
 }
 .logo span{
   display:inline-block;
@@ -316,145 +329,341 @@ nav.crumbs .current{color:var(--ink);}
 }
 
 /* ============================================
-   FOOTER (etiqueta de marca, no nav genérico)
+   FOOTER
    ============================================ */
 footer.site{
-  background:var(--bone);
+  background:var(--bone-deep);
   border-top:1px solid var(--line);
-  margin-top:120px;
-  padding:48px var(--gutter) 60px;
+  margin-top:96px;
+  padding:56px var(--gutter) 28px;
 }
 .footer-inner{
   max-width:var(--maxw);
   margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  flex-wrap:wrap;
-  gap:24px;
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1.2fr 1.2fr;
+  gap:40px;
 }
 .footer-mark{
   font-family:var(--serif);
-  font-size:15px;
+  font-size:22px;
+  letter-spacing:0.03em;
 }
-.footer-meta{
+.footer-about{
+  font-size:13.5px;
+  color:var(--ink-soft);
+  line-height:1.7;
+  max-width:300px;
+  margin:12px 0 0;
+}
+.footer-h{
   font-family:var(--mono);
   font-size:10.5px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--taupe);
+  margin-bottom:14px;
+}
+.footer-col p,
+.footer-col a,
+.footer-col button{
+  display:block;
+  font-size:13.5px;
+  line-height:1.6;
   color:var(--ink-soft);
+  margin:0 0 9px;
+  text-align:left;
+  padding:0;
+}
+.footer-col a:hover,
+.footer-col button:hover{color:var(--ink);}
+.footer-bottom{
+  max-width:var(--maxw);
+  margin:44px auto 0;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  font-family:var(--mono);
+  font-size:10.5px;
   letter-spacing:0.04em;
-  text-align:right;
-  line-height:1.8;
+  color:var(--ink-soft);
+}
+@media (max-width:900px){
+  .footer-inner{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:520px){
+  .footer-inner{grid-template-columns:1fr;gap:28px;}
 }
 
 /* ============================================
-   CATALOG VIEW — HERO FULL WIDTH
+   PORTADA — composición con las fotos de la colección
    ============================================ */
-.hero{
-  position:relative;
-  width:100%;
-  height:clamp(420px, 72vh, 680px);
-  overflow:hidden;
-  background:var(--ink);
+.hero2{
+  background:var(--bone-deep);
+  border-bottom:1px solid var(--line);
 }
-.hero-bg{
-  position:absolute;
-  inset:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 20%;
-  filter:saturate(0.85) brightness(0.62);
-  transition:transform 8s ease;
-}
-.hero:hover .hero-bg{transform:scale(1.03);}
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to right,
-    rgba(26,26,24,0.68) 0%,
-    rgba(26,26,24,0.28) 55%,
-    rgba(26,26,24,0.05) 100%
-  );
-}
-.hero-content{
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:0 var(--gutter) clamp(36px,6vh,72px);
+.hero2-inner{
   max-width:var(--maxw);
   margin:0 auto;
+  padding:clamp(32px,5vw,72px) var(--gutter);
+  display:grid;
+  grid-template-columns:minmax(0,0.85fr) minmax(0,1.5fr);
+  gap:clamp(28px,4vw,72px);
+  align-items:center;
 }
 .hero-eyebrow{
   font-family:var(--mono);
   font-size:11px;
   letter-spacing:0.14em;
   text-transform:uppercase;
-  color:rgba(250,250,248,0.7);
-  margin-bottom:14px;
+  color:var(--taupe);
+  margin-bottom:18px;
 }
 .hero-title{
   font-family:var(--serif);
   font-weight:300;
-  font-size:clamp(34px, 5.5vw, 72px);
+  font-size:clamp(38px,4.6vw,70px);
   line-height:1.02;
-  color:var(--bone);
+  color:var(--ink);
   letter-spacing:-0.01em;
-  max-width:700px;
-  margin-bottom:20px;
+  margin:0 0 20px;
 }
 .hero-title em{
   font-style:italic;
-  color:rgba(250,250,248,0.78);
+  color:var(--taupe);
 }
 .hero-meta{
   font-family:var(--mono);
   font-size:11.5px;
-  color:rgba(250,250,248,0.55);
+  color:var(--ink-soft);
   letter-spacing:0.04em;
-  margin-bottom:28px;
+  margin:0 0 26px;
+}
+.hero-promo{
+  display:inline-block;
+  background:var(--taupe);
+  color:var(--bone);
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  padding:10px 16px;
+  margin-bottom:30px;
+}
+.hero-promo strong{
+  font-size:15px;
+  margin-right:6px;
 }
 .hero-cta{
-  display:inline-flex;
+  display:flex;
   align-items:center;
   gap:10px;
   font-family:var(--mono);
   font-size:11.5px;
   letter-spacing:0.08em;
   text-transform:uppercase;
-  color:var(--bone);
-  border-bottom:1px solid rgba(250,250,248,0.5);
+  color:var(--ink);
+  border-bottom:1px solid var(--ink);
   padding-bottom:6px;
   width:fit-content;
-  transition:gap .2s, border-color .2s;
+  transition:gap .2s, color .2s, border-color .2s;
 }
-.hero-cta:hover{gap:16px; border-color:var(--bone);}
-.hero-promo{
-  position:absolute;
-  top:32px;
-  right:var(--gutter);
-  z-index:3;
-  background:var(--taupe);
-  color:var(--bone);
+.hero-cta:hover{gap:16px;color:var(--taupe);border-color:var(--taupe);}
+.hero2-photos{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(10px,1.4vw,20px);
+  align-items:start;
+}
+.hero2-ph{display:block;cursor:pointer;}
+.hero2-ph:nth-child(2){margin-top:clamp(24px,4vw,56px);}
+.hero2-ph img{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  background:var(--paper);
+  transition:transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.hero2-ph:hover img{transform:translateY(-4px);}
+.hero2-cap{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:10px;
   font-family:var(--mono);
-  padding:12px 20px;
-  font-size:11px;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  text-align:center;
-  line-height:1.6;
+  font-size:10.5px;
+  letter-spacing:0.03em;
+  color:var(--ink-soft);
 }
-.hero-promo strong{
+@media (max-width:900px){
+  .hero2-inner{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  .hero2-ph:nth-child(2){margin-top:0;}
+  .hero2-cap{flex-direction:column;gap:2px;}
+}
+
+/* ============================================
+   PORTADA ANCHA — imagen horizontal con el texto sobre la pared vacía
+   ============================================ */
+.hero3{
+  --wall:#EEDED5;
+  position:relative;
+  display:flex;
+  justify-content:flex-end;
+  background:var(--wall);
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero3-img{
   display:block;
-  font-size:22px;
-  font-weight:700;
+  flex:0 0 auto;
+  width:auto;
+  max-width:none;
+  height:clamp(460px, 50vw, 740px);
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 22%);
+  mask-image:linear-gradient(to right, transparent 0, #000 22%);
+}
+.hero3-inner{
+  position:absolute;
+  inset:0;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 var(--gutter);
+  display:flex;
+  align-items:center;
+  pointer-events:none;
+}
+.hero3-copy{
+  max-width:min(470px, 40%);
+  pointer-events:auto;
+}
+@media (max-width:760px){
+  .hero3{flex-direction:column;justify-content:flex-start;}
+  .hero3-inner{
+    position:static;
+    order:-1;
+    padding:36px var(--gutter) 26px;
+  }
+  .hero3-copy{max-width:none;}
+  .hero3-img{
+    width:100%;
+    height:auto;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    object-position:96% 50%;
+    -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 14%);
+    mask-image:linear-gradient(to bottom, transparent 0, #000 14%);
+  }
+}
+
+/* ============================================
+   CATEGORÍAS CON FOTO
+   ============================================ */
+.cats{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:64px var(--gutter) 28px;
+}
+.sec-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:16px;
+  margin-bottom:22px;
+}
+.sec-title{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:clamp(26px,3vw,36px);
   letter-spacing:-0.01em;
 }
-@media(max-width:600px){
-  .hero-promo{display:none;}
-  .hero-title{font-size:clamp(28px,8vw,42px);}
+.cats-row{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+}
+.cat-tile{
+  position:relative;
+  display:block;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:var(--bone-deep);
+  text-align:left;
+  padding:0;
+}
+.cat-tile img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 30%;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.cat-tile:hover img{transform:scale(1.05);}
+.cat-tile::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(26,26,24,0.55), rgba(26,26,24,0) 55%);
+  pointer-events:none;
+}
+.cat-label{
+  position:absolute;
+  left:16px;bottom:14px;
+  z-index:2;
+  color:var(--bone);
+  font-family:var(--serif);
+  font-size:21px;
+  line-height:1.1;
+}
+.cat-label small{
+  display:block;
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.06em;
+  opacity:0.8;
+  margin-top:4px;
+}
+@media (max-width:900px){
+  .cats-row{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    gap:12px;
+    margin:0 calc(var(--gutter) * -1);
+    padding:0 var(--gutter) 6px;
+  }
+  .cat-tile{flex:0 0 44vw;scroll-snap-align:start;}
+}
+
+/* ============================================
+   FRANJA DE CONFIANZA
+   ============================================ */
+.trust{
+  width:calc(100% - 2 * var(--gutter));
+  max-width:calc(var(--maxw) - 2 * var(--gutter));
+  margin:64px auto 0;
+  padding:36px 0 0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:28px;
+  border-top:1px solid var(--line);
+}
+.trust-t{
+  font-family:var(--serif);
+  font-size:18px;
+  margin-bottom:6px;
+}
+.trust-d{
+  font-family:var(--mono);
+  font-size:11px;
+  line-height:1.7;
+  color:var(--ink-soft);
+}
+@media (max-width:760px){
+  .trust{grid-template-columns:1fr 1fr;}
 }
 
 .catalog-title{
@@ -516,18 +725,39 @@ footer.site{
 .grid{
   max-width:var(--maxw);
   margin:0 auto;
-  padding:8px var(--gutter) 40px;
+  padding:32px var(--gutter) 24px;
   display:grid;
   grid-template-columns:repeat(4, 1fr);
-  gap:1px;
-  background:var(--line);
+  gap:44px 20px;
 }
 
 @media (max-width:1100px){
   .grid{grid-template-columns:repeat(3,1fr);}
 }
 @media (max-width:760px){
-  .grid{grid-template-columns:repeat(2,1fr);}
+  .grid{grid-template-columns:repeat(2,1fr);gap:32px 12px;}
+}
+.filter-bar .search-chip{
+  background:var(--bone-deep);
+  color:var(--ink);
+  padding:6px 12px;
+  border-bottom:none;
+}
+.filter-bar .search-chip:hover{background:var(--line-soft);}
+/* carrito en celular: que nada ensanche la página */
+.cart-layout > *,
+.cart-line > *{min-width:0;}
+.cart-line-meta{overflow-wrap:anywhere;}
+@media (max-width:480px){
+  .cart-line{grid-template-columns:84px 1fr auto;gap:14px;}
+  .cart-line img{width:84px;height:112px;}
+}
+.no-results{
+  grid-column:1/-1;
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-soft);
+  padding:40px 0;
 }
 
 .card{
@@ -578,7 +808,7 @@ footer.site{
 .card:hover .card-quick{transform:translateY(0);}
 
 .card-info{
-  padding:16px 4px 28px;
+  padding:16px 4px 4px;
 }
 .card-name{
   font-family:var(--serif);
@@ -646,7 +876,7 @@ footer.site{
 .pdp-gallery{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:2px;
+  gap:12px;
   align-content:start;
   padding-top:28px;
   padding-right:40px;
@@ -665,6 +895,109 @@ footer.site{
 @media (max-width:520px){
   .pdp-gallery{grid-template-columns:1fr;}
   .pdp-gallery img:first-child{grid-column:auto;}
+}
+
+.pdp-gallery.single,
+.pdp-gallery.double{
+  grid-template-columns:1fr;
+  padding-bottom:40px;
+}
+.pdp-gallery.single{
+  position:sticky;
+  top:96px;
+  align-self:start;
+}
+.pdp-gallery.single img,
+.pdp-gallery.single img:first-child,
+.pdp-gallery.double img,
+.pdp-gallery.double img:first-child{
+  grid-column:auto;
+  aspect-ratio:3/4;
+  max-width:540px;
+}
+/* con foto colgada + foto con modelo: la ficha acompaña al bajar */
+.pdp-gallery.double + .pdp-info{
+  position:sticky;
+  top:90px;
+  align-self:start;
+}
+@media (max-width:900px){
+  .pdp-gallery.single{position:static;}
+  .pdp-gallery.single img,
+  .pdp-gallery.double img{max-width:none;}
+  .pdp-gallery.double + .pdp-info{position:static;}
+}
+
+.btn-wa{
+  gap:10px;
+  margin-top:10px;
+}
+.pdp-note{
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:0.03em;
+  color:var(--ink-soft);
+  margin-top:14px;
+  max-width:440px;
+  line-height:1.7;
+}
+
+.acc{
+  margin-top:32px;
+  max-width:440px;
+  border-top:1px solid var(--line);
+}
+.acc details{border-bottom:1px solid var(--line);}
+.acc summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 0;
+  font-family:var(--mono);
+  font-size:11.5px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.acc summary::-webkit-details-marker{display:none;}
+.acc summary::after{content:"+";font-size:16px;}
+.acc details[open] summary::after{content:"−";}
+.acc-body{
+  padding:0 0 18px;
+  font-size:13.5px;
+  color:var(--ink-soft);
+  line-height:1.7;
+}
+.meas{
+  width:100%;
+  border-collapse:collapse;
+  font-family:var(--mono);
+  font-size:11.5px;
+  margin-bottom:10px;
+}
+.meas th,
+.meas td{
+  padding:7px 0;
+  text-align:left;
+  border-bottom:1px solid var(--line-soft);
+}
+.meas th{color:var(--ink-soft);font-weight:400;}
+
+.field.invalid input{border-color:var(--error) !important;}
+.field.invalid label{color:var(--error);}
+.modal-note{
+  font-family:var(--mono);
+  font-size:11.5px;
+  color:var(--taupe);
+  margin:0 0 16px;
+  line-height:1.6;
+}
+.form-error{
+  font-family:var(--mono);
+  font-size:11.5px;
+  color:var(--error);
+  margin:0 0 16px;
 }
 
 .pdp-info{
@@ -868,7 +1201,7 @@ footer.site{
   display:flex;
   align-items:center;
   gap:14px;
-  transform:translateY(120%);
+  transform:translateY(calc(100% + 48px));
   transition:transform .35s cubic-bezier(.2,.8,.2,1);
   z-index:300;
   max-width:320px;
@@ -1407,6 +1740,7 @@ footer.site{
 .section-fade{
   animation:fadeUp .45s ease both;
 }
+.still .section-fade{animation:none;}
 @keyframes fadeUp{
   from{opacity:0; transform:translateY(10px);}
   to{opacity:1; transform:translateY(0);}
@@ -1419,7 +1753,7 @@ footer.site{
      ANNOUNCEMENT BAR
      ============================================ -->
 <div class="announce-bar">
-  <span class="announce-msg">ENVÍO GRATIS EN COMPRAS MAYORES A S/ 300 — TEMPORADA FW26: 15% OFF EN ABRIGOS CON CÓDIGO <strong>VEDA10</strong></span>
+  <span class="announce-msg">ENVÍO GRATIS DESDE S/ 300 — TEMPORADA FW26: 10% OFF CON CÓDIGO <strong>VEDA10</strong></span>
 </div>
 
 <!-- ============================================
@@ -1427,7 +1761,7 @@ footer.site{
      ============================================ -->
 <header class="site">
   <div class="header-inner">
-    <a href="#" class="logo" data-nav="catalog" onclick="go('catalog');return false;">MAISON VEDA<span>FW26</span></a>
+    <a href="#" class="logo" data-nav="catalog" onclick="go('catalog');return false;" aria-label="MAISON VEDA — ir al catálogo"><img src="img/logo.png" alt="MAISON VEDA" width="559" height="114"></a>
     <nav class="crumbs" id="crumbs"></nav>
     <div class="header-actions">
       <button class="icon-btn" onclick="toggleHeaderSearch()" aria-label="Buscar">
@@ -1457,22 +1791,8 @@ footer.site{
 <!-- LOGIN MODAL -->
 <div class="modal-overlay" id="loginModal" onclick="closeLogin()">
   <div class="modal-box" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeLogin()">×</button>
-    <div class="modal-title">Acceder a tu cuenta</div>
-    <div class="modal-sub">Gestiona tus pedidos y favoritos</div>
-    <div class="field" style="margin-bottom:18px;">
-      <label>Correo electrónico</label>
-      <input type="email" placeholder="tu@correo.com">
-    </div>
-    <div class="field" style="margin-bottom:28px;">
-      <label>Contraseña</label>
-      <input type="password" placeholder="••••••••">
-    </div>
-    <button class="btn-primary" style="max-width:100%;margin-bottom:14px;" onclick="closeLogin()">Entrar</button>
-    <button class="btn-secondary" style="max-width:100%;font-size:11px;" onclick="closeLogin()">Crear cuenta nueva</button>
-    <div style="text-align:center;margin-top:16px;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);">
-      <a href="#" onclick="closeLogin();return false;" style="text-decoration:underline;">¿Olvidaste tu contraseña?</a>
-    </div>
+    <button class="modal-close" onclick="closeLogin()" aria-label="Cerrar">×</button>
+    <div id="loginBody"></div>
   </div>
 </div>
 
@@ -1480,11 +1800,37 @@ footer.site{
 
 <footer class="site">
   <div class="footer-inner">
-    <div class="footer-mark">MAISON VEDA</div>
-    <div class="footer-meta">
-      PIEZA ÚNICA TRABAJADA EN TALLER PROPIO<br>
-      LIMA — BUENOS AIRES — MADE TO LAST
+    <div>
+      <img class="footer-logo" src="img/logo.png" alt="MAISON VEDA" width="559" height="114">
+      <p class="footer-about">Vestuario esencial de taller propio, hecho en Lima en series cortas y pensado para durar más de una temporada.</p>
     </div>
+    <div class="footer-col">
+      <div class="footer-h">Comprar</div>
+      <button onclick="shopCat('todos')">Toda la colección</button>
+      <button onclick="shopCat('abrigos')">Abrigos</button>
+      <button onclick="shopCat('camisas')">Camisas</button>
+      <button onclick="shopCat('pantalones')">Pantalones</button>
+      <button onclick="shopCat('sueteres')">Suéteres</button>
+      <button onclick="shopCat('vestidos')">Vestidos</button>
+    </div>
+    <div class="footer-col">
+      <div class="footer-h">Envíos y cambios</div>
+      <p>Envío estándar en 4–6 días hábiles, gratis desde S/ 300.</p>
+      <p>Envío express en 1–2 días hábiles, S/ 35.</p>
+      <p>Recojo gratis en el showroom de Lima.</p>
+      <p>Cambios dentro de 30 días, con la prenda sin uso y su etiqueta.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-h">Contacto</div>
+      <a href="https://wa.me/51999999999?text=Hola%2C%20quiero%20consultar%20por%20una%20prenda%20de%20MAISON%20VEDA" target="_blank" rel="noopener">WhatsApp +51 999 999 999</a>
+      <a href="mailto:hola@maisonveda.com">hola@maisonveda.com</a>
+      <p>Lunes a sábado, 10:00 a. m. – 7:00 p. m.</p>
+      <p>Showroom en Lima, con cita previa por WhatsApp.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 MAISON VEDA</span>
+    <span>PIEZAS TRABAJADAS EN TALLER PROPIO · LIMA</span>
   </div>
 </footer>
 
@@ -1502,12 +1848,10 @@ const PRODUCTS = [
     id:"vd-01", ref:"VD—014 / CR", name:"Abrigo Crudo de Lana",
     category:"abrigos", price:890, tag:"Nuevo",
     colors:[
-      {name:"Crudo", hex:"#D9D2C3", img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=80"},
-      {name:"Camel", hex:"#B08D5F", img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=80&sat=-20"},
-      {name:"Grafito", hex:"#3E3B38", img:"https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=900&q=80"}
+      {name:"Crudo", hex:"#D9D2C3", img:"img/abrigo.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=900&q=80",
-    img3:"https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=900&q=80",
+    img2:"img/abrigo-modelo.webp",
+    img3:"img/abrigo-modelo.webp",
     desc:"Abrigo de corte recto en lana virgen sin teñir. Hombro caído, solapa ancha y botonadura de asta natural. Pensado para usarse una década, no una temporada.",
     composition:"92% lana virgen, 8% cashmere", origin:"Hilado en Arequipa, confeccionado en Lima",
     care:"Limpieza en seco únicamente", sizes:["XS","S","M","L","XL"], outOf:["XS"],
@@ -1517,12 +1861,10 @@ const PRODUCTS = [
     id:"vd-02", ref:"VD—027 / BL", name:"Camisa Oversize Lino",
     category:"camisas", price:310, tag:null,
     colors:[
-      {name:"Blanco roto", hex:"#EFEAE0", img:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=900&q=80"},
-      {name:"Azul piedra", hex:"#6E7E8C", img:"https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=900&q=80"},
-      {name:"Terracota", hex:"#B5664A", img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=900&q=80"}
+      {name:"Blanco roto", hex:"#EFEAE0", img:"img/camisa.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=900&q=80",
-    img3:"https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=900&q=80",
+    img2:"img/camisa.webp",
+    img3:"img/camisa.webp",
     desc:"Camisa de lino lavado con caída suelta y costuras expuestas a la vista. El lino se ablanda y mejora con cada lavado; las arrugas son parte del carácter de la prenda.",
     composition:"100% lino europeo", origin:"Tejido en Piura, confeccionado en Lima",
     care:"Lavado a máquina, ciclo frío", sizes:["XS","S","M","L","XL"], outOf:[],
@@ -1532,22 +1874,10 @@ const PRODUCTS = [
     id:"vd-03", ref:"VD—009 / NG", name:"Pantalón Sastre Recto",
     category:"pantalones", price:420, tag:"Más vendido",
     colors:[
-      {name:"Negro", hex:"#1A1A18", img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&q=80"},
-      {name:"Arena", hex:"#C9BCA3", img:"https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=900&q=80"}
+      {name:"Negro", hex:"#1A1A18", img:"img/pantalon-sastre.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=900&q=80",
-    img3:"https://images.unsplash.com/photo-1473445730015-841f29a9490b?w=900&q=80",
-    desc:"Pantalón de pierna recta con pinzas frontales y caída estructurada. Construido en gabardina de algodón con la cantidad justa de elastano para moverse sin perder forma.",
-    composition:"97% algodón, 3% elastano", origin:"Confeccionado en Lima",
-    care:"Limpieza en seco recomendada", sizes:["36","38","40","42","44"], outOf:["44"],
-    rating:4.9, reviews:91, ref:"VD—009 / NG", name:"Pantalón Sastre Recto",
-    category:"pantalones", price:420, tag:"Más vendido",
-    colors:[
-      {name:"Negro", hex:"#1A1A18", img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=900&q=80"},
-      {name:"Arena", hex:"#C9BCA3", img:"https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=900&q=80"}
-    ],
-    img2:"https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=900&q=80",
-    img3:"https://images.unsplash.com/photo-1473445730015-841f29a9490b?w=900&q=80",
+    img2:"img/pantalon-sastre-modelo.webp",
+    img3:"img/pantalon-sastre-modelo.webp",
     desc:"Pantalón de pierna recta con pinzas frontales y caída estructurada. Construido en gabardina de algodón con la cantidad justa de elastano para moverse sin perder forma.",
     composition:"97% algodón, 3% elastano", origin:"Confeccionado en Lima",
     care:"Limpieza en seco recomendada", sizes:["36","38","40","42","44"], outOf:["44"],
@@ -1557,12 +1887,10 @@ const PRODUCTS = [
     id:"vd-04", ref:"VD—033 / BG", name:"Suéter Cuello Alto Beige",
     category:"sueteres", price:380, tag:null,
     colors:[
-      {name:"Beige", hex:"#D2BFA3", img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=900&q=80"},
-      {name:"Verde musgo", hex:"#5C6650", img:"https://images.unsplash.com/photo-1614975059251-992f11792b9f?w=900&q=80"},
-      {name:"Burdeos", hex:"#6B2E2E", img:"https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=900&q=80"}
+      {name:"Beige", hex:"#D2BFA3", img:"img/sueter.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1610652492500-ded49ceeb378?w=900&q=80",
-    img3:"https://images.unsplash.com/photo-1614975059251-992f11792b9f?w=900&q=80",
+    img2:"img/sueter-modelo.webp",
+    img3:"img/sueter-modelo.webp",
     desc:"Punto fino de cuello alto en mezcla de lana merino. Silueta ajustada al cuerpo sin ceñir, ideal como capa intermedia o pieza única en climas templados.",
     composition:"70% lana merino, 30% algodón", origin:"Tejido y confeccionado en Lima",
     care:"Lavado a mano, secado horizontal", sizes:["XS","S","M","L"], outOf:[],
@@ -1572,11 +1900,10 @@ const PRODUCTS = [
     id:"vd-05", ref:"VD—041 / CR", name:"Vestido Camisero Lino",
     category:"vestidos", price:460, tag:"Nuevo",
     colors:[
-      {name:"Crudo", hex:"#E4DCC9", img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=900&q=80"},
-      {name:"Negro", hex:"#1A1A18", img:"https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=900&q=80"}
+      {name:"Crudo", hex:"#E4DCC9", img:"img/vestido-camisero.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&q=80",
-    img3:"https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=900&q=80",
+    img2:"img/vestido-camisero-modelo.webp",
+    img3:"img/vestido-camisero-modelo.webp",
     desc:"Vestido camisero de largo midi en lino crudo. Cinturón del mismo tejido para ajustar la silueta a voluntad. Una sola pieza que reemplaza tres del clóset.",
     composition:"100% lino europeo", origin:"Tejido en Piura, confeccionado en Lima",
     care:"Lavado a máquina, ciclo frío", sizes:["XS","S","M","L","XL"], outOf:["XL"],
@@ -1586,11 +1913,10 @@ const PRODUCTS = [
     id:"vd-06", ref:"VD—018 / NG", name:"Blazer Estructurado",
     category:"abrigos", price:720, tag:null,
     colors:[
-      {name:"Negro", hex:"#1A1A18", img:"https://images.unsplash.com/photo-1551048632-24e444b48a3e?w=900&q=80"},
-      {name:"Gris piedra", hex:"#8C887E", img:"https://images.unsplash.com/photo-1598522325074-042db73aa48b?w=900&q=80"}
+      {name:"Negro", hex:"#1A1A18", img:"img/blazer.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=900&q=80",
-    img3:"https://images.unsplash.com/photo-1598522325074-042db73aa48b?w=900&q=80",
+    img2:"img/blazer-modelo.webp",
+    img3:"img/blazer-modelo.webp",
     desc:"Blazer de dos botones con entretela tradicional y hombrera mínima. El corte es generoso a propósito: una prenda que acompaña, no que aprieta.",
     composition:"100% lana", origin:"Confeccionado en Lima",
     care:"Limpieza en seco únicamente", sizes:["XS","S","M","L","XL"], outOf:[],
@@ -1600,26 +1926,23 @@ const PRODUCTS = [
     id:"vd-07", ref:"VD—052 / BL", name:"Camiseta Algodón Pima",
     category:"camisas", price:145, tag:null,
     colors:[
-      {name:"Blanco", hex:"#F7F5F0", img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&q=80"},
-      {name:"Negro", hex:"#1A1A18", img:"https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=900&q=80"},
-      {name:"Arena", hex:"#C9BCA3", img:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=900&q=80"}
+      {name:"Blanco", hex:"#F7F5F0", img:"img/camiseta.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=900&q=80",
-    img3:"https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=900&q=80",
+    img2:"img/camiseta.webp",
+    img3:"img/camiseta.webp",
     desc:"Camiseta base en algodón pima peruano de trama densa. Corte recto, cuello redondo reforzado. La prenda que va debajo de todo y sostiene todo.",
     composition:"100% algodón pima", origin:"Cultivado y confeccionado en Perú",
     care:"Lavado a máquina, ciclo frío", sizes:["XS","S","M","L","XL"], outOf:[],
     rating:4.9, reviews:112
   },
   {
-    id:"vd-08", ref:"VD—061 / GR", name:"Falda Midi Plisada",
+    id:"vd-08", ref:"VD—061 / GR", name:"Falda Midi Plisada", measure:"falda",
     category:"vestidos", price:340, tag:"Nuevo",
     colors:[
-      {name:"Gris piedra", hex:"#9C9A91", img:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=80&auto=format&fit=crop"},
-      {name:"Negro", hex:"#1A1A18", img:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&q=80&auto=format&fit=crop"}
+      {name:"Gris piedra", hex:"#9C9A91", img:"img/falda.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&auto=format&fit=crop",
-    img3:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&q=80&auto=format&fit=crop",
+    img2:"img/falda.webp",
+    img3:"img/falda.webp",
     desc:"Falda midi de plisado permanente en gris piedra. El movimiento del plisado es el punto focal de la prenda: deliberadamente simple en todo lo demás.",
     composition:"100% poliéster reciclado", origin:"Confeccionado en Lima",
     care:"Lavado a mano, secado horizontal", sizes:["XS","S","M","L"], outOf:["S"],
@@ -1629,32 +1952,82 @@ const PRODUCTS = [
     id:"vd-09", ref:"VD—074 / AZ", name:"Pantalón Lino Ancho",
     category:"pantalones", price:360, tag:"Nuevo",
     colors:[
-      {name:"Arena", hex:"#C9BCA3", img:"https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=900&q=80&auto=format&fit=crop"},
-      {name:"Azul marino", hex:"#2C3E50", img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=900&q=80&auto=format&fit=crop"}
+      {name:"Arena", hex:"#C9BCA3", img:"img/pantalon-lino.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=900&q=80&auto=format&fit=crop",
-    img3:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=900&q=80&auto=format&fit=crop",
+    img2:"img/pantalon-lino.webp",
+    img3:"img/pantalon-lino.webp",
     desc:"Pantalón de pierna ancha en lino sin pre-lavado. Tiro alto, pretina elástica en la parte trasera y bolsillos profundos. La prenda más cómoda del verano, con el aspecto más cuidado.",
     composition:"100% lino europeo", origin:"Tejido en Piura, confeccionado en Lima",
     care:"Lavado a máquina, ciclo frío", sizes:["XS","S","M","L","XL"], outOf:[],
     rating:4.6, reviews:38
   },
   {
-    id:"vd-10", ref:"VD—088 / CR", name:"Cardigan Largo Oversize",
+    id:"vd-10", ref:"VD—088 / CR", name:"Cárdigan Largo Oversize",
     category:"sueteres", price:490, tag:null,
     colors:[
-      {name:"Crudo", hex:"#E8E0CE", img:"https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=900&q=80&auto=format&fit=crop"},
-      {name:"Carbón", hex:"#3A3A3A", img:"https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=900&q=80&auto=format&fit=crop"},
-      {name:"Salvia", hex:"#7D8F6E", img:"https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&auto=format&fit=crop"}
+      {name:"Crudo", hex:"#E8E0CE", img:"img/cardigan.webp"}
     ],
-    img2:"https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=900&q=80&auto=format&fit=crop",
-    img3:"https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=900&q=80&auto=format&fit=crop",
-    desc:"Cardigan largo hasta la cadera en punto abierto de algodón orgánico. Botones de madera, bolsillos laterales con forro. La pieza de transición entre estaciones que siempre buscas.",
+    img2:"img/cardigan.webp",
+    img3:"img/cardigan.webp",
+    desc:"Cárdigan largo hasta la cadera en punto abierto de algodón orgánico. Botones de madera, bolsillos laterales con forro. La pieza de transición entre estaciones que siempre buscas.",
     composition:"100% algodón orgánico", origin:"Confeccionado en Lima",
     care:"Lavado a mano, secado horizontal", sizes:["XS","S","M","L"], outOf:["XS"],
     rating:4.7, reviews:51
   },
+  {
+    id:"vd-11", ref:"VD—095 / CH", name:"Vestido Slip Satinado",
+    category:"vestidos", price:390, tag:"Nuevo",
+    colors:[
+      {name:"Champán", hex:"#D8C8AE", img:"img/vestido-slip.webp"}
+    ],
+    img2:"img/vestido-slip.webp",
+    img3:"img/vestido-slip.webp",
+    desc:"Vestido midi de corte al bies en satín mate, con tirantes finos ajustables y caída fluida. Se usa solo, o con un suéter fino encima cuando refresca.",
+    composition:"100% viscosa satinada", origin:"Confeccionado en Lima",
+    care:"Lavado a mano, secado horizontal", sizes:["XS","S","M","L"], outOf:[],
+    rating:4.6, reviews:14
+  },
+  {
+    id:"vd-12", ref:"VD—102 / CM", name:"Trench Corto de Algodón",
+    category:"abrigos", price:640, tag:null,
+    colors:[
+      {name:"Camel", hex:"#B08D5F", img:"img/trench.webp"}
+    ],
+    img2:"img/trench.webp",
+    img3:"img/trench.webp",
+    desc:"Trench de largo medio en gabardina de algodón, con cinturón y puños ajustables. Una capa ligera para las mañanas húmedas de Lima.",
+    composition:"100% algodón gabardina", origin:"Confeccionado en Lima",
+    care:"Limpieza en seco recomendada", sizes:["XS","S","M","L","XL"], outOf:["XL"],
+    rating:4.7, reviews:21
+  },
 ];
+
+/* Con qué categorías combina cada prenda ("Completa el look") */
+const LOOK = {
+  abrigos:["sueteres","pantalones","camisas"],
+  camisas:["pantalones","abrigos","vestidos"],
+  pantalones:["camisas","sueteres","abrigos"],
+  sueteres:["pantalones","abrigos","vestidos"],
+  vestidos:["abrigos","sueteres","camisas"]
+};
+
+/* Medidas de la prenda en cm (tabla de la ficha) */
+const MEASURES = {
+  abrigos:{head:["Pecho","Largo"], rows:{XS:[92,98],S:[96,100],M:[100,102],L:[106,104],XL:[112,106]}},
+  camisas:{head:["Pecho","Largo"], rows:{XS:[96,68],S:[100,70],M:[104,72],L:[110,74],XL:[116,76]}},
+  sueteres:{head:["Pecho","Largo"], rows:{XS:[88,58],S:[92,60],M:[98,62],L:[104,64],XL:[110,66]}},
+  pantalones:{head:["Cintura","Largo"], rows:{XS:[66,100],S:[70,100],M:[74,101],L:[78,101],XL:[82,102],"36":[68,102],"38":[72,102],"40":[76,103],"42":[80,103],"44":[84,104]}},
+  vestidos:{head:["Busto","Largo"], rows:{XS:[84,112],S:[88,114],M:[92,116],L:[98,118],XL:[104,120]}},
+  falda:{head:["Cintura","Largo"], rows:{XS:[64,78],S:[68,78],M:[72,80],L:[76,80]}}
+};
+
+const CATEGORY_COVER = {
+  abrigos:"img/abrigo.webp",
+  camisas:"img/camisa.webp",
+  pantalones:"img/pantalon-sastre.webp",
+  sueteres:"img/sueter.webp",
+  vestidos:"img/vestido-slip.webp"
+};
 
 const CATEGORIES = [
   {key:"todos", label:"Todos"},
@@ -1666,7 +2039,7 @@ const CATEGORIES = [
 ];
 
 const SHIPPING_OPTIONS = [
-  {id:"standard", name:"Envío estándar", time:"4–6 días hábiles", price:0},
+  {id:"standard", name:"Envío estándar", time:"4–6 días hábiles", price:15},
   {id:"express", name:"Envío express", time:"1–2 días hábiles", price:35},
   {id:"pickup", name:"Recojo en showroom", time:"Disponible en 24h — Lima", price:0},
 ];
@@ -1738,7 +2111,7 @@ function toggleWish(e, id){
   } else {
     state.wishlist.push(id);
   }
-  render(true);
+  rerenderKeep();
 }
 
 function toggleSearch(){
@@ -1747,16 +2120,11 @@ function toggleSearch(){
   if(state.searchOpen) setTimeout(()=>{ const el=document.getElementById("searchInput"); if(el) el.focus(); },60);
 }
 
-function doSearch(val){
-  state.searchQuery = val.trim().toLowerCase();
-  state.activeCategory = "todos";
-  render(true);
-}
-
 function clearSearch(){
   state.searchQuery = "";
-  render(true);
-  setTimeout(()=>{ const el=document.getElementById("searchInput"); if(el) el.focus(); },60);
+  const hi = document.getElementById("headerSearchInput");
+  if(hi) hi.value = "";
+  rerenderKeep();
 }
 
 /* ---- BUSCADOR DEL HEADER (siempre visible vía dropdown) ---- */
@@ -1772,14 +2140,11 @@ function doSearchHeader(val){
   state.searchQuery = val.trim().toLowerCase();
 }
 function submitHeaderSearch(){
-  const goingToCatalog = state.view !== "catalog";
   state.activeCategory = "todos";
-  go("catalog");
+  state.view = "catalog";
   document.getElementById("headerSearchDrop").classList.remove("open");
-  if(!goingToCatalog){
-    const grid = document.getElementById("catalog-grid");
-    if(grid) grid.scrollIntoView({behavior:"smooth", block:"start"});
-  }
+  render(true);
+  scrollToFilters();
 }
 function clearHeaderSearch(){
   document.getElementById("headerSearchInput").value = "";
@@ -1788,13 +2153,81 @@ function clearHeaderSearch(){
   if(state.view === "catalog") render(true);
 }
 
-/* ---- LOGIN MODAL ---- */
+/* ---- CUENTA (simulada) ---- */
+function renderLogin(){
+  const b = document.getElementById("loginBody");
+  const bad = k => (state.loginErrors || []).includes(k) ? " invalid" : "";
+  if(state.user){
+    b.innerHTML = `
+      <div class="modal-title">Hola, ${state.user}</div>
+      <div class="modal-sub">Sesión iniciada · cuenta de demostración</div>
+      <button class="btn-secondary" style="max-width:100%;" onclick="logout()">Cerrar sesión</button>`;
+    return;
+  }
+  b.innerHTML = `
+    <div class="modal-title">Acceder a tu cuenta</div>
+    <div class="modal-sub">Gestiona tus pedidos y favoritos</div>
+    <div class="field${bad('lemail')}" style="margin-bottom:18px;">
+      <label>Correo electrónico</label>
+      <input type="email" placeholder="tu@correo.com" ${fin('lemail')}>
+    </div>
+    <div class="field${bad('lpass')}" style="margin-bottom:24px;">
+      <label>Contraseña</label>
+      <input type="password" placeholder="••••••••" ${fin('lpass')}>
+    </div>
+    ${(state.loginErrors || []).length ? '<div class="form-error">Revisa los campos marcados en rojo.</div>' : ''}
+    ${state.loginNote ? `<div class="modal-note">${state.loginNote}</div>` : ''}
+    <button class="btn-primary" style="max-width:100%;margin-bottom:14px;" onclick="submitLogin()">Entrar</button>
+    <button class="btn-secondary" style="max-width:100%;font-size:11px;" onclick="submitLogin()">Crear cuenta nueva</button>
+    <div style="text-align:center;margin-top:16px;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);">
+      <a href="#" onclick="forgotPassword();return false;" style="text-decoration:underline;">¿Olvidaste tu contraseña?</a>
+    </div>`;
+}
+function submitLogin(){
+  const em = fk("lemail").trim();
+  const errs = [];
+  if(!/^\S+@\S+\.\S+$/.test(em)) errs.push("lemail");
+  if(!fk("lpass")) errs.push("lpass");
+  state.loginErrors = errs;
+  state.loginNote = "";
+  if(errs.length){ renderLogin(); return; }
+  const name = em.split("@")[0].replace(/[._-]+/g, " ");
+  state.user = name.replace(/(^|\s)\S/g, c => c.toUpperCase());
+  state.form.lpass = "";
+  closeLogin();
+  updateAccountLabel();
+}
+function forgotPassword(){
+  const ok = /^\S+@\S+\.\S+$/.test(fk("lemail").trim());
+  state.loginErrors = ok ? [] : ["lemail"];
+  state.loginNote = ok ? "Si el correo existe, te enviaremos un enlace para restablecer la contraseña." : "";
+  renderLogin();
+}
+function logout(){
+  state.user = null;
+  closeLogin();
+  updateAccountLabel();
+}
+function updateAccountLabel(){
+  const el = document.querySelector(".login-label");
+  if(el) el.textContent = state.user ? state.user.split(" ")[0].toUpperCase() : "ACCEDER";
+}
 function openLogin(){
+  state.loginErrors = [];
+  state.loginNote = "";
+  renderLogin();
   document.getElementById("loginModal").classList.add("open");
+  setTimeout(() => { const i = document.querySelector("#loginBody input"); if(i) i.focus(); }, 80);
 }
 function closeLogin(){
   document.getElementById("loginModal").classList.remove("open");
 }
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape"){
+    closeLogin();
+    document.getElementById("headerSearchDrop").classList.remove("open");
+  }
+});
 
 /* Fallback visual si una imagen de producto no carga — evita el ícono roto del navegador */
 function imgFallback(imgEl, label){
@@ -1827,6 +2260,110 @@ function imgFallback(imgEl, label){
 const findProduct = (id) => PRODUCTS.find(p => p.id === id);
 
 /* ============================================================
+   AYUDAS — envío, WhatsApp, "Completa el look", categorías, formularios
+   ============================================================ */
+const SITE_URL = "https://moravistudio.github.io/MAISON-VEDA/";
+const WA_NUMBER = "51999999999";
+const FREE_SHIP_FROM = 300;
+
+function shipPrice(id){
+  const o = SHIPPING_OPTIONS.find(s => s.id === id);
+  if(id === "standard" && cartSubtotal() >= FREE_SHIP_FROM) return 0;
+  return o.price;
+}
+
+function waLink(p, color, size, qty){
+  const msg = "Hola, quiero pedir esta prenda de MAISON VEDA:\n\n"
+    + p.name + " (Ref. " + p.ref + ")\n"
+    + "Color: " + color.name + "\n"
+    + "Talla: " + (size || "por confirmar") + "\n"
+    + "Cantidad: " + qty + "\n"
+    + "Total: " + fmt(p.price * qty) + "\n\n"
+    + SITE_URL + "?p=" + p.id;
+  return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+}
+
+function lookFor(p){
+  const order = LOOK[p.category] || [];
+  const out = [];
+  for(let round = 0; round < 4 && out.length < 4; round++){
+    order.forEach(cat => {
+      const cand = PRODUCTS.filter(x => x.category === cat && x.id !== p.id);
+      if(cand[round] && out.length < 4) out.push(cand[round]);
+    });
+  }
+  return out;
+}
+
+function shopCat(key){
+  state.activeCategory = key;
+  state.searchQuery = "";
+  const hi = document.getElementById("headerSearchInput");
+  if(hi) hi.value = "";
+  state.view = "catalog";
+  render(true);
+  scrollToFilters();
+}
+
+/* Lleva la vista a la barra de filtros (suave; si el navegador no anima, salta) */
+function scrollToFilters(){
+  const f = document.getElementById("filters");
+  if(!f) return;
+  const target = Math.max(0, f.getBoundingClientRect().top + window.scrollY - 70);
+  window.scrollTo({top: target, behavior:"smooth"});
+  setTimeout(() => {
+    if(Math.abs(window.scrollY - target) > 4) window.scrollTo({top: target, behavior:"instant"});
+  }, 900);
+}
+
+function trustStrip(){
+  return `
+    <div class="trust">
+      <div><div class="trust-t">Envío gratis desde S/ 300</div><div class="trust-d">Estándar en 4–6 días hábiles.</div></div>
+      <div><div class="trust-t">Cambios en 30 días</div><div class="trust-d">Con la prenda sin uso y su etiqueta.</div></div>
+      <div><div class="trust-t">Pago seguro</div><div class="trust-d">Tarjeta, Yape, Plin o transferencia.</div></div>
+      <div><div class="trust-t">Taller propio en Lima</div><div class="trust-d">Series cortas, hechas para durar.</div></div>
+    </div>`;
+}
+
+/* Formularios del checkout: conservan lo escrito y marcan los vacíos */
+function fk(k){ state.form = state.form || {}; return state.form[k] || ""; }
+function fbad(k){ return (state.formErrors || []).includes(k) ? " invalid" : ""; }
+function fin(k){
+  return `data-k="${k}" value="${fk(k).replace(/"/g,'&quot;')}" oninput="state.form['${k}']=this.value"`;
+}
+function formFail(keys){
+  state.formErrors = keys;
+  render(true);
+  const f = document.querySelector(".field.invalid");
+  if(f) f.scrollIntoView({block:"center", behavior:"smooth"});
+}
+function goPay(){
+  const keys = ["nombre","apellido","correo","direccion","ciudad","region"].filter(k => !fk(k).trim());
+  const em = fk("correo").trim();
+  if(em && !/^\S+@\S+\.\S+$/.test(em)) keys.push("correo");
+  if(keys.length) return formFail(keys);
+  go("checkout", {step:2});
+}
+function goReview(){
+  if(state.payTab === "card"){
+    const keys = [];
+    if(fk("cardnum").replace(/\D/g,"").length < 15) keys.push("cardnum");
+    if(!fk("cardname").trim()) keys.push("cardname");
+    if(!/^\d{2}\/\d{2}$/.test(fk("cardexp").trim())) keys.push("cardexp");
+    if(fk("cardcvc").replace(/\D/g,"").length < 3) keys.push("cardcvc");
+    if(keys.length) return formFail(keys);
+  }
+  go("checkout", {step:3});
+}
+function syncCard(){
+  if(!document.getElementById("cvNumber")) return;
+  if(fk("cardnum")) updateCardVisual(fk("cardnum"), "number");
+  if(fk("cardname")) updateCardVisual(fk("cardname"), "name");
+  if(fk("cardexp")) updateCardVisual(fk("cardexp"), "exp");
+}
+
+/* ============================================================
    ROUTER
    ============================================================ */
 function go(view, params){
@@ -1837,14 +2374,28 @@ function go(view, params){
     state.selectedQty = 1;
     state.selectedColorIndex = 0;
   }
-  if(view === "checkout") state.checkoutStep = params && params.step ? params.step : 1;
+  if(view === "checkout"){
+    state.checkoutStep = params && params.step ? params.step : 1;
+    state.formErrors = [];
+  }
   render();
   window.scrollTo({top:0, behavior:"instant"});
 }
 
+/* Vuelve a dibujar el catálogo sin mover la barra de filtros de su sitio en pantalla */
+function rerenderKeep(){
+  const f = document.getElementById("filters");
+  const prev = f ? f.getBoundingClientRect().top : null;
+  render(true);
+  const f2 = document.getElementById("filters");
+  if(f2 && prev !== null){
+    window.scrollTo({top: Math.max(0, f2.getBoundingClientRect().top + window.scrollY - prev), behavior:"instant"});
+  }
+}
+
 function setCategory(cat){
   state.activeCategory = cat;
-  render();
+  rerenderKeep();
 }
 
 /* ============================================================
@@ -1916,8 +2467,10 @@ function renderCrumbs(){
    ============================================================ */
 function viewCatalog(){
   const q = state.searchQuery;
+  if(state.activeCategory === "favoritos" && !state.wishlist.length) state.activeCategory = "todos";
   const filtered = PRODUCTS.filter(p => {
-    const matchCat = state.activeCategory === "todos" || p.category === state.activeCategory;
+    const matchCat = state.activeCategory === "todos"
+      || (state.activeCategory === "favoritos" ? state.wishlist.includes(p.id) : p.category === state.activeCategory);
     const matchQ = matchesQuery(p, q);
     return matchCat && matchQ;
   });
@@ -1952,46 +2505,54 @@ function viewCatalog(){
 
   const filterBtns = CATEGORIES.map(c => `
     <button class="${state.activeCategory===c.key ? 'active':''}" onclick="setCategory('${c.key}')">${c.label}</button>
-  `).join("");
+  `).join("") + (state.wishlist.length
+    ? `<button class="${state.activeCategory==='favoritos' ? 'active':''}" onclick="setCategory('favoritos')">♡ Favoritos (${state.wishlist.length})</button>`
+    : "");
+
+  const catTiles = CATEGORIES.filter(c => c.key !== "todos").map(c => {
+    const n = PRODUCTS.filter(p => p.category === c.key).length;
+    return `
+      <button class="cat-tile" onclick="shopCat('${c.key}')">
+        <img src="${CATEGORY_COVER[c.key]}" alt="${c.label}" loading="lazy" onerror="imgFallback(this,'${c.label}')">
+        <span class="cat-label">${c.label}<small>${n} piezas</small></span>
+      </button>`;
+  }).join("");
 
   return `
     <div class="section-fade">
 
-      <!-- HERO FULL WIDTH -->
-      <div class="hero">
-        <img class="hero-bg" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1600&q=85&auto=format&fit=crop" alt="Campaña FW26 Maison Veda" onerror="this.style.background='var(--ink)'">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <div class="hero-eyebrow">Colección Otoño — Invierno 2026</div>
-          <h1 class="hero-title">Nueva colección.<br><em>Hecha para durar.</em></h1>
-          <p class="hero-meta">PIEZAS ATEMPORALES · TALLER PROPIO, LIMA</p>
-          <a href="#catalog-grid" class="hero-cta" onclick="document.getElementById('catalog-grid').scrollIntoView({behavior:'smooth'});return false;">
-            Ver colección completa
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+      <!-- PORTADA: imagen horizontal; en celular el texto va arriba y la imagen se recorta a las prendas -->
+      <section class="hero3">
+        <img class="hero3-img" src="img/portada.webp" alt="Cárdigan, vestido slip, pantalón de lino y trench colgados en una barra de latón">
+        <div class="hero3-inner">
+          <div class="hero3-copy">
+            <div class="hero-eyebrow">Colección Otoño — Invierno 2026</div>
+            <h1 class="hero-title">Nueva colección.<br><em>Hecha para durar.</em></h1>
+            <p class="hero-meta">PIEZAS ATEMPORALES · TALLER PROPIO, LIMA</p>
+            <div class="hero-promo"><strong>−10%</strong> con el código VEDA10</div>
+            <a href="#filters" class="hero-cta" onclick="shopCat('todos');return false;">
+              Ver colección completa
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
-        <div class="hero-promo">
-          <strong>−15%</strong>
-          EN ABRIGOS<br>TEMPORADA FW26<br>CON CÓDIGO VEDA10
-        </div>
-      </div>
+      </section>
 
-      <!-- BUSCADOR siempre visible -->
-      <div class="search-bar">
-        <div class="search-inner">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="text" id="searchInput" placeholder="Buscar prendas, colores, materiales..." oninput="doSearch(this.value)" value="${state.searchQuery||''}" autocomplete="off">
-          ${state.searchQuery ? `<button class="search-clear" onclick="clearSearch()" aria-label="Limpiar búsqueda">×</button>` : ''}
-        </div>
-      </div>
+      <!-- CATEGORÍAS CON FOTO -->
+      <section class="cats">
+        <div class="sec-head"><h2 class="sec-title">Compra por categoría</h2></div>
+        <div class="cats-row">${catTiles}</div>
+      </section>
 
-      <!-- BARRA DE FILTROS -->
-      <div class="filter-bar">
+      <!-- BARRA DE FILTROS (la búsqueda está en la lupa del encabezado) -->
+      <div class="filter-bar" id="filters">
+        ${q ? `<button class="search-chip" onclick="clearSearch()" aria-label="Quitar la búsqueda">Búsqueda: «${q.replace(/</g,'&lt;')}» ×</button>` : ''}
         ${filterBtns}
         <span class="filter-count">${filtered.length} PIEZA${filtered.length===1?'':'S'}</span>
       </div>
 
-      <div class="grid" id="catalog-grid">${cards}</div>
+      <div class="grid" id="catalog-grid">${cards}${filtered.length ? "" : '<p class="no-results">No encontramos prendas con esa búsqueda.</p>'}</div>
+      ${trustStrip()}
     </div>
   `;
 }
@@ -2003,6 +2564,7 @@ function viewProduct(){
   const p = findProduct(state.currentProductId);
   if(!p) return `<div class="wrap" style="padding:80px 0;">Producto no encontrado. <a href="#" onclick="go('catalog');return false;">Volver al catálogo</a></div>`;
 
+  state.acc = state.acc || {comp:true};
   const activeColor = p.colors[state.selectedColorIndex] || p.colors[0];
 
   const sizeButtons = p.sizes.map(s => {
@@ -2020,8 +2582,8 @@ function viewProduct(){
       onclick="selectColor(${i})"></button>
   `).join("");
 
-  const related = PRODUCTS.filter(rp => rp.category === p.category && rp.id !== p.id).slice(0,4);
-  const relatedCards = related.map(rp => `
+  const look = lookFor(p);
+  const lookCards = look.map(rp => `
     <div class="card" onclick="go('product', {id:'${rp.id}'})">
       <div class="card-img">
         <img src="${mainImg(rp)}" alt="${rp.name}" loading="lazy" onerror="imgFallback(this,'${rp.name}')">
@@ -2037,13 +2599,32 @@ function viewProduct(){
     </div>
   `).join("");
 
+  const uniq = [...new Set([activeColor.img, p.img2, p.img3].filter(Boolean))];
+  const gallery = uniq.map((src, i) =>
+    `<img src="${src}" alt="${p.name}${i ? ' — detalle ' + i : ' en ' + activeColor.name}" onerror="imgFallback(this,'${p.name}')">`
+  ).join("");
+
+  const m = MEASURES[p.measure || p.category];
+  const measRows = m ? p.sizes.filter(s => m.rows[s]).map(s =>
+    `<tr><td>${s}</td><td>${m.rows[s][0]}</td><td>${m.rows[s][1]}</td></tr>`).join("") : "";
+  const measures = m ? `
+    <table class="meas">
+      <tr><th>Talla</th><th>${m.head[0]} (cm)</th><th>${m.head[1]} (cm)</th></tr>
+      ${measRows}
+    </table>
+    Medidas de la prenda. Si dudas entre dos tallas, escríbenos por WhatsApp y te ayudamos.` : "";
+
+  const acc = (key, title, body) => `
+    <details ${state.acc[key] ? 'open' : ''} ontoggle="state.acc['${key}']=this.open">
+      <summary>${title}</summary>
+      <div class="acc-body">${body}</div>
+    </details>`;
+
   return `
     <div class="section-fade">
       <div class="pdp">
-        <div class="pdp-gallery">
-          <img src="${activeColor.img}" alt="${p.name} en ${activeColor.name}" onerror="imgFallback(this,'${p.name}')">
-          <img src="${p.img2}" alt="${p.name} detalle" onerror="imgFallback(this,'${p.name}')">
-          <img src="${p.img3}" alt="${p.name} detalle 2" onerror="imgFallback(this,'${p.name}')">
+        <div class="pdp-gallery ${uniq.length === 1 ? 'single' : uniq.length === 2 ? 'double' : ''}">
+          ${gallery}
         </div>
         <div class="pdp-info">
           <div class="pdp-ref">Ref. ${p.ref}</div>
@@ -2055,7 +2636,8 @@ function viewProduct(){
             ${renderStars(p.rating)}
             <span class="pdp-review-count">${p.reviews} reseñas verificadas</span>
           </div>
- — <span id="colorName">${activeColor.name}</span></span>
+
+          <span class="pdp-section-label">Color — <span id="colorName">${activeColor.name}</span></span>
           <div class="color-row">${colorSwatches}</div>
 
           <span class="pdp-section-label">Talla</span>
@@ -2070,20 +2652,29 @@ function viewProduct(){
           </div>
 
           <button class="btn-primary" onclick="handleAddToCart()">Añadir al carrito — ${fmt(p.price * state.selectedQty)}</button>
+          <a class="btn-secondary btn-wa" href="${waLink(p, activeColor, state.selectedSize, state.selectedQty)}" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Pedirlo por WhatsApp
+          </a>
+          <div class="pdp-note">Envío gratis desde S/ 300 · Cambios en 30 días · Taller propio en Lima</div>
 
-          <div class="pdp-tech">
-            <div class="tech-row"><span>Composición</span><span>${p.composition}</span></div>
-            <div class="tech-row"><span>Origen</span><span>${p.origin}</span></div>
-            <div class="tech-row"><span>Cuidado</span><span>${p.care}</span></div>
+          <div class="acc">
+            ${acc("comp", "Composición y origen", `
+              <div class="tech-row"><span>Composición</span><span>${p.composition}</span></div>
+              <div class="tech-row"><span>Origen</span><span>${p.origin}</span></div>`)}
+            ${acc("care", "Cuidados", `${p.care}. Guárdala colgada en una percha de madera para que conserve su forma.`)}
+            ${acc("meas", "Medidas", measures)}
           </div>
         </div>
       </div>
 
-      ${related.length ? `
+      ${look.length ? `
       <div class="related">
-        <div class="related-label">También en ${CATEGORIES.find(c=>c.key===p.category)?.label.toLowerCase()}</div>
-        <div class="grid">${relatedCards}</div>
+        <div class="related-label">Completa el look</div>
+        <div class="grid">${lookCards}</div>
       </div>` : ""}
+
+      ${trustStrip()}
     </div>
   `;
 }
@@ -2151,7 +2742,7 @@ function viewCart(){
 
   const subtotal = cartSubtotal();
   const discount = state.promoApplied ? subtotal * 0.1 : 0;
-  const shippingCost = SHIPPING_OPTIONS.find(s=>s.id===state.shipping).price;
+  const shippingCost = shipPrice(state.shipping);
   const total = subtotal - discount + (subtotal > 0 ? shippingCost : 0);
 
   return `
@@ -2200,7 +2791,7 @@ function viewCheckout(){
   const step = state.checkoutStep || 1;
   const subtotal = cartSubtotal();
   const discount = state.promoApplied ? subtotal * 0.1 : 0;
-  const shippingCost = SHIPPING_OPTIONS.find(s=>s.id===state.shipping).price;
+  const shippingCost = shipPrice(state.shipping);
   const total = subtotal - discount + shippingCost;
 
   const stepper = `
@@ -2225,7 +2816,7 @@ function viewCheckout(){
             <div class="ship-time">${o.time}</div>
           </div>
         </div>
-        <div class="ship-price">${o.price === 0 ? "Gratis" : fmt(o.price)}</div>
+        <div class="ship-price">${shipPrice(o.id) === 0 ? "Gratis" : fmt(shipPrice(o.id))}</div>
       </div>
     `).join("");
 
@@ -2234,27 +2825,28 @@ function viewCheckout(){
         <div class="co-section-title">Datos de contacto</div>
         <div class="co-section-sub">Usaremos esto solo para confirmaciones del pedido</div>
         <div class="field-grid">
-          <div class="field"><label>Nombre</label><input type="text" placeholder="María"></div>
-          <div class="field"><label>Apellido</label><input type="text" placeholder="Fernández"></div>
+          <div class="field${fbad('nombre')}"><label>Nombre</label><input type="text" placeholder="María" ${fin('nombre')}></div>
+          <div class="field${fbad('apellido')}"><label>Apellido</label><input type="text" placeholder="Fernández" ${fin('apellido')}></div>
         </div>
-        <div class="field"><label>Correo electrónico</label><input type="email" placeholder="maria@correo.com"></div>
+        <div class="field${fbad('correo')}"><label>Correo electrónico</label><input type="email" placeholder="maria@correo.com" ${fin('correo')}></div>
       </div>
       <div class="co-section">
         <div class="co-section-title">Dirección de envío</div>
-        <div class="field"><label>Dirección</label><input type="text" placeholder="Av. Larco 345, Miraflores"></div>
+        <div class="field${fbad('direccion')}"><label>Dirección</label><input type="text" placeholder="Av. Larco 345, Miraflores" ${fin('direccion')}></div>
         <div class="field-grid three">
-          <div class="field"><label>Ciudad</label><input type="text" placeholder="Lima"></div>
-          <div class="field"><label>Región</label><input type="text" placeholder="Lima"></div>
-          <div class="field"><label>Código postal</label><input type="text" placeholder="15074"></div>
+          <div class="field${fbad('ciudad')}"><label>Ciudad</label><input type="text" placeholder="Lima" ${fin('ciudad')}></div>
+          <div class="field${fbad('region')}"><label>Región</label><input type="text" placeholder="Lima" ${fin('region')}></div>
+          <div class="field"><label>Código postal</label><input type="text" placeholder="15074" ${fin('cp')}></div>
         </div>
       </div>
       <div class="co-section">
         <div class="co-section-title">Método de envío</div>
         <div class="ship-options">${shipOpts}</div>
       </div>
+      ${(state.formErrors||[]).length ? '<div class="form-error">Revisa los campos marcados en rojo.</div>' : ''}
       <div class="co-actions">
         <a href="#" class="link-back" onclick="go('cart');return false;">← Volver al carrito</a>
-        <button class="btn-primary" style="width:auto;padding:16px 36px;" onclick="go('checkout',{step:2})">Continuar a pago</button>
+        <button class="btn-primary" style="width:auto;padding:16px 36px;" onclick="goPay()">Continuar a pago</button>
       </div>
     `;
   }
@@ -2276,12 +2868,12 @@ function viewCheckout(){
           <div class="cv-number" id="cvNumber">•••• •••• •••• ••••</div>
           <div class="cv-row"><span class="cv-name" id="cvName">NOMBRE APELLIDO</span><span id="cvExp">MM/AA</span></div>
         </div>
-        <div class="field"><label>Número de tarjeta</label><input type="text" maxlength="19" placeholder="4242 4242 4242 4242" oninput="updateCardVisual(this.value,'number')"></div>
+        <div class="field${fbad('cardnum')}"><label>Número de tarjeta</label><input type="text" maxlength="19" placeholder="4242 4242 4242 4242" ${fin('cardnum')} oninput="state.form['cardnum']=this.value;updateCardVisual(this.value,'number')"></div>
         <div class="field-grid">
-          <div class="field"><label>Nombre en la tarjeta</label><input type="text" placeholder="María Fernández" oninput="updateCardVisual(this.value,'name')"></div>
-          <div class="field"><label>Vencimiento</label><input type="text" placeholder="MM/AA" maxlength="5" oninput="updateCardVisual(this.value,'exp')"></div>
+          <div class="field${fbad('cardname')}"><label>Nombre en la tarjeta</label><input type="text" placeholder="María Fernández" ${fin('cardname')} oninput="state.form['cardname']=this.value;updateCardVisual(this.value,'name')"></div>
+          <div class="field${fbad('cardexp')}"><label>Vencimiento</label><input type="text" placeholder="MM/AA" maxlength="5" ${fin('cardexp')} oninput="state.form['cardexp']=this.value;updateCardVisual(this.value,'exp')"></div>
         </div>
-        <div class="field" style="max-width:140px;"><label>CVC</label><input type="text" maxlength="4" placeholder="123"></div>
+        <div class="field${fbad('cardcvc')}" style="max-width:140px;"><label>CVC</label><input type="text" maxlength="4" placeholder="123" ${fin('cardcvc')}></div>
       `;
     } else if(state.payTab === "yape"){
       payBody = `
@@ -2310,9 +2902,10 @@ function viewCheckout(){
         ${tabs}
         ${payBody}
       </div>
+      ${(state.formErrors||[]).length ? '<div class="form-error">Revisa los campos marcados en rojo.</div>' : ''}
       <div class="co-actions">
         <a href="#" class="link-back" onclick="go('checkout',{step:1});return false;">← Volver a envío</a>
-        <button class="btn-primary" style="width:auto;padding:16px 36px;" onclick="go('checkout',{step:3})">Revisar pedido</button>
+        <button class="btn-primary" style="width:auto;padding:16px 36px;" onclick="goReview()">Revisar pedido</button>
       </div>
     `;
   }
@@ -2391,10 +2984,11 @@ function updateCardVisual(val, field){
 function completeOrder(){
   state.lastOrder = {
     items: [...state.cart],
-    total: cartSubtotal() * (state.promoApplied ? 0.9 : 1) + SHIPPING_OPTIONS.find(s=>s.id===state.shipping).price,
+    total: cartSubtotal() * (state.promoApplied ? 0.9 : 1) + shipPrice(state.shipping),
     orderNum: "VD-" + Math.floor(100000 + Math.random()*899999)
   };
   state.cart = [];
+  state.form = {};
   state.promoApplied = false;
   state.shipping = "standard";
   updateCartCount();
@@ -2441,10 +3035,20 @@ function render(skipScroll){
   else if(state.view === "checkout") html = viewCheckout();
   else if(state.view === "confirm") html = viewConfirm();
 
+  app.classList.toggle("still", !!skipScroll);
   app.innerHTML = html;
   renderCrumbs();
   updateCartCount();
+  syncCard();
+  updateAccountLabel();
   if(!skipScroll) window.scrollTo({top:0, behavior:"instant"});
+}
+
+/* Enlace directo a una prenda: ?p=vd-01 (lo usa el botón de WhatsApp) */
+const deepLink = new URLSearchParams(location.search).get("p");
+if(deepLink && findProduct(deepLink)){
+  state.view = "product";
+  state.currentProductId = deepLink;
 }
 
 render();
